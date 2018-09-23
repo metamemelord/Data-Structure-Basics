@@ -52,8 +52,9 @@ def update(pos,val):
     global size
     x[pos] = val
     while pos < len(x)-1:
-        x[getParent(pos)] = min(x[getLeftChild(getParent(pos))],x[getRightChild(getParent(pos))])
-        pos = getParent(pos)
+        parent = getParent(pos)
+        x[parent] = min(x[getLeftChild(parent)],x[getRightChild(parent)])
+        pos = parent
 
 def _init():
     global size
